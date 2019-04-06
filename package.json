@@ -1,8 +1,8 @@
 {
   "name": "html-element-picker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Pick and highlight any HTML Element on a page using only Vanilla JS (highly configurable)",
-  "main": "src/ElementPicker.js",
+  "main": "dist/ElementPicker.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/AlienKevin/html-element-picker/issues"
   },
-  "homepage": "https://github.com/AlienKevin/html-element-picker#readme"
+  "homepage": "https://github.com/AlienKevin/html-element-picker#readme",
+  "devDependencies": {
+    "del": "^4.1.0",
+    "gulp": "^4.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "pump": "^3.0.0",
+    "uglify-es": "^3.3.9"
+  }
 }

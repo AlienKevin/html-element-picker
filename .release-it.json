@@ -10,7 +10,7 @@
     "npm": {
         "publish": true
     },
-    "pkgFiles": ["package.json"],
+    "pkgFiles": ["package.json", "package-lock.json"],
     "scripts": {
         "afterBump": "git add . && git commit --amend --no-edit"
     }
