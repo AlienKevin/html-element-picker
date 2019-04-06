@@ -1,1 +1,1 @@
-new ElementPicker();
+const picker = new ElementPicker();

@@ -2,7 +2,7 @@
   "name": "html-element-picker",
   "version": "1.0.0",
   "description": "Pick and highlight any HTML Element on a page using only Vanilla JS (highly configurable)",
-  "main": "script.js",
+  "main": "src/ElementPicker.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
