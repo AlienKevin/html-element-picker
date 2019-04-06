@@ -3,6 +3,7 @@ class ElementPicker {
         // MUST create hover box first before applying options
         this.hoverBox = document.createElement("div");
         this.hoverBox.style.position = "absolute";
+        this.hoverBox.style.pointerEvents = "none";
 
         const defaultOptions = {
             container: document.body,
