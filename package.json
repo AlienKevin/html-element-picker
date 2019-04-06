@@ -1,6 +1,6 @@
 {
   "name": "html-element-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pick and highlight any HTML Element on a page using only Vanilla JS (highly configurable)",
   "main": "src/ElementPicker.js",
   "scripts": {

@@ -1,0 +1,17 @@
+{
+    "git": {
+        "tagName": "v${version}",
+        "commit": false,
+        "push": false
+    },
+    "github": {
+        "release": false
+    },
+    "npm": {
+        "publish": true
+    },
+    "pkgFiles": ["package.json"],
+    "scripts": {
+        "afterBump": "git add . && git commit --amend --no-edit"
+    }
+}
