@@ -1,0 +1,27 @@
+{
+  "name": "html-element-picker",
+  "version": "1.0.0",
+  "description": "Pick and highlight any HTML Element on a page using only Vanilla JS (highly configurable)",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlienKevin/html-element-picker.git"
+  },
+  "keywords": [
+    "DOM",
+    "inspector",
+    "element",
+    "picker",
+    "devTool",
+    "highlight"
+  ],
+  "author": "Kevin Li <kevinli020508@gmail.com> (https://github.com/AlienKevin)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlienKevin/html-element-picker/issues"
+  },
+  "homepage": "https://github.com/AlienKevin/html-element-picker#readme"
+}
