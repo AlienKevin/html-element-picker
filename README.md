@@ -1,5 +1,5 @@
 # html-element-picker
-Pick and highlight any HTML element on a page using only Vanilla JS. Hovered elements are automatically highlighted in the color you want.
+Pick and highlight any HTML element on a page using only Vanilla JS. Hovered elements are automatically highlighted in the color you want. Tested in Chrome, Firefox, and Opera, does not work in IE.
 
 ## Installation
 ### NPM
@@ -9,7 +9,7 @@ Pick and highlight any HTML element on a page using only Vanilla JS. Hovered ele
 Append the one of the following scripts at the end of `body` tag
 1. jsDelivr
 ```
-<script src="https://cdn.jsdelivr.net/npm/html-element-picker@latest"></script>`
+<script src="https://cdn.jsdelivr.net/npm/html-element-picker@latest"></script>
 ```
 2. Unpkg
 ```
