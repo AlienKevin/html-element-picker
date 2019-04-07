@@ -76,6 +76,6 @@ action: {
 ```
 You must **surround the `callback` function with parentheses** just like Immediately Invoked Function Expressions (IIFEs). Defaults to no action (empty Object).
 
----
-
-NOTE: In addition, all of the above options can be **dynamically** updated in Javascript at runtime. Element picker will respond immediately to any configuration change.
+<aside class="notice">
+In addition, all of the above options can be **dynamically** updated in Javascript at runtime. Element picker will respond immediately to any configuration change.
+</aside>
