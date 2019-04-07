@@ -121,22 +121,25 @@
             return this._action;
         }
         set action(value) {
-            if (value instanceof Object &&
-                typeof value.trigger === "string" &&
-                typeof value.callback === "function") {
-                if (this._triggerListener){
-                    document.removeEventListener(this.action.trigger, this._triggerListener);
-                    this._triggered = false;
+            if (value instanceof Object) {
+                if (typeof value.trigger === "string" &&
+                    typeof value.callback === "function") {
+                    if (this._triggerListener) {
+                        document.removeEventListener(this.action.trigger, this._triggerListener);
+                        this._triggered = false;
+                    }
+                    this._action = value;
+
+                    this._triggerListener = () => {
+                        this._triggered = true;
+                        this._redetectMouseMove();
+                    }
+                    document.addEventListener(this.action.trigger, this._triggerListener);
+                } else if (value.trigger !== undefined || value.callback !== undefined){ // allow empty action object
+                    throw new Error("action must include two keys: trigger (String) and callback (function)!");
                 }
-                this._action = value;
-                
-                this._triggerListener = () => {
-                    this._triggered = true;
-                    this._redetectMouseMove();
-                }
-                document.addEventListener(this.action.trigger, this._triggerListener);
-            } else{
-                throw new Error("action must be an object including two keys: trigger (String) and callback (function)!");
+            } else {
+                throw new Error("action must be an object!");
             }
         }
         _redetectMouseMove() {
