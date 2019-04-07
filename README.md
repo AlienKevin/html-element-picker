@@ -33,6 +33,7 @@ background: "rgba(153, 235, 255, 0.5)",
 borderWidth: 5,
 transition: "all 150ms ease",
 ignoreElements: [document.body],
+action: {}
 }
 ```
 ### 1. container (HTMLElement)
@@ -47,3 +48,30 @@ ignoreElements: [document.body],
 `transition` specifies the animation when the highlight box transfer to another hovered element. Same as setting `elementPicker.hoverBox.style.transition`. Pass in `""` (empty string) to disable transition. Defaults to `"all 150ms ease"`.
 ### 6. ignoreElements (Array of HTMLElement)
 `ignoreElements` lists the elements to **not** highlight when being hovered over. Add, remove, modify elements in this property same as a normal array (`push`, `pop`, etc). The order of elements does not matter. Defaults to the document body.
+### 7. action (Object with two properties)
+`action` indicates a callback function to run when an event is triggered and **the target element is being picked up by the element picker**, meaning only elements that are accepted by the picker will trigger the callback. `trigger` is a `String` with possible event names such as `"click"`, `"dblclick"`, `"mouseover"`, etc. `callback` is a function given a `target` parameter when triggered which contains the hovered element. Sample `callback` functions are:
+```
+(function (target) {
+    target.remove();
+})
+```
+```
+(function (target) {
+    target.style.fontSize = "50px"; 
+})
+```
+```
+(function (target) {
+    target.classList.toggle("highlight");
+})
+```
+A full `action` option can look like:
+```
+action: {
+    trigger: "click",
+    callback: (function (target) {
+        target.classList.toggle("highlight");
+    })
+}
+```
+Note that you must **surround the `callback` function with parentheses** just like Immediately Invoked Function Expressions (IIFEs). Defaults to no action (empty Object).
