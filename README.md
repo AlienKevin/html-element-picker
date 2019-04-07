@@ -21,6 +21,9 @@ Append the one of the following scripts at the end of `body` tag
 # Update
 Because of the usual 24-hour cache by CDN providers, you should replace the @latest tag with @(the latest version number) for immediate update to the latest version. It's always the safest to use the current stable version @1.0.4.
 
+# Support
+See the [html-element-picker API documentation](https://alienkevin.github.io/html-element-picker/docs/index.html).
+
 # Usage
 After importing html-element-picker, instantiate the ElementPicker class with optional configurations.
 ```js
