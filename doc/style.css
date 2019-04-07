@@ -16,4 +16,6 @@ input {
     font-size: 14px;
   }
 }
-  
+.menu a.active:after{
+    right: 20px;
+}
