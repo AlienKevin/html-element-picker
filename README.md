@@ -8,24 +8,24 @@
 ### CDN
 Append the one of the following scripts at the end of `body` tag
 1. jsDelivr
-```
-<script src="https://cdn.jsdelivr.net/npm/html-element-picker@latest"></script>
-```
+    ```html
+    <script src="https://cdn.jsdelivr.net/npm/html-element-picker@latest"></script>
+    ```
 2. Unpkg
-```
-<script src="https://unpkg.com/html-element-picker@latest"></script>
-```
+    ```html
+    <script src="https://unpkg.com/html-element-picker@latest"></script>
+    ```
 
 ## Update
 Because of the usual 24-hour cache by CDN providers, you should replace the @latest tag with @(the latest version number) for immediate update to the latest version. It's always the safest to use the current stable version @1.0.4.
 
 ## Usage
 After importing html-element-picker, instantiate the ElementPicker class with optional configurations.
-```
+```js
 new ElementPicker(options);
 ```
 The default configurations are
-```
+```js
 {
 container: document.body,
 selectors: "*",
@@ -50,23 +50,23 @@ action: {}
 `ignoreElements` lists the elements to **not** highlight when being hovered over. Add, remove, modify elements in this property same as a normal array (`push`, `pop`, etc). The order of elements does not matter. Defaults to the document body.
 ### 7. action (Object with two properties)
 `action` indicates a callback function to run when an event is triggered and **the target element is being picked up by the element picker**, meaning only elements that are accepted by the picker will trigger the callback. `trigger` is a `String` with possible event names such as `"click"`, `"dblclick"`, `"mouseover"`, etc. `callback` is a function given a `target` parameter when triggered which contains the hovered element. Sample `callback` functions are:
-```
+```js
 (function (target) {
     target.remove();
 })
 ```
-```
+```js
 (function (target) {
     target.style.fontSize = "50px"; 
 })
 ```
-```
+```js
 (function (target) {
     target.classList.toggle("highlight");
 })
 ```
 A full `action` option can look like:
-```
+```js
 action: {
     trigger: "click",
     callback: (function (target) {
