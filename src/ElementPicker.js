@@ -13,6 +13,7 @@
                 borderWidth: 5,
                 transition: "all 150ms ease", // set to "" (empty string) to disable
                 ignoreElements: [document.body],
+                action: {},
             }
             const mergedOptions = {
                 ...defaultOptions,
@@ -21,6 +22,13 @@
             Object.keys(mergedOptions).forEach((key) => {
                 this[key] = mergedOptions[key];
             });
+
+            if (this.action && this.action.trigger) {
+                document.addEventListener(this.action.trigger, () => {
+                    this._triggered = true;
+                    this._redetectMouseMove();
+                });
+            }
 
             this._detectMouseMove = (e) => {
                 this._previousEvent = e;
@@ -54,6 +62,10 @@
                     // need scrollX and scrollY to account for scrolling
                     this.hoverBox.style.top = targetOffset.top + window.scrollY - this.borderWidth + "px";
                     this.hoverBox.style.left = targetOffset.left + window.scrollX - this.borderWidth + "px";
+                    if (this._triggered && this.action.callback) {
+                        this.action.callback(target);
+                        this._triggered = false;
+                    }
                 } else {
                     // console.log("hiding hover box...");
                     this.hoverBox.style.width = 0;
