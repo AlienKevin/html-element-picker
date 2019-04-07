@@ -23,13 +23,6 @@
                 this[key] = mergedOptions[key];
             });
 
-            if (this.action && this.action.trigger) {
-                document.addEventListener(this.action.trigger, () => {
-                    this._triggered = true;
-                    this._redetectMouseMove();
-                });
-            }
-
             this._detectMouseMove = (e) => {
                 this._previousEvent = e;
                 let target = e.target;
@@ -123,6 +116,28 @@
             this._ignoreElements = value;
 
             this._redetectMouseMove();
+        }
+        get action() {
+            return this._action;
+        }
+        set action(value) {
+            if (value instanceof Object &&
+                typeof value.trigger === "string" &&
+                typeof value.callback === "function") {
+                if (this._triggerListener){
+                    document.removeEventListener(this.action.trigger, this._triggerListener);
+                    this._triggered = false;
+                }
+                this._action = value;
+                
+                this._triggerListener = () => {
+                    this._triggered = true;
+                    this._redetectMouseMove();
+                }
+                document.addEventListener(this.action.trigger, this._triggerListener);
+            } else{
+                throw new Error("action must be an object including two keys: trigger (String) and callback (function)!");
+            }
         }
         _redetectMouseMove() {
             if (this._detectMouseMove && this._previousEvent) {
