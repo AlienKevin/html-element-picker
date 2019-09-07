@@ -142,6 +142,9 @@
                 throw new Error("action must be an object!");
             }
         }
+        close() {
+            this.hoverBox.remove()
+        }        
         _redetectMouseMove() {
             if (this._detectMouseMove && this._previousEvent) {
                 this._detectMouseMove(this._previousEvent);
